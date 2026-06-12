@@ -260,9 +260,6 @@ function applyTranslations() {
   document.querySelectorAll("[data-i18n-aria-label]").forEach((node) => {
     node.setAttribute("aria-label", t(node.getAttribute("data-i18n-aria-label")));
   });
-  document.querySelectorAll("[data-i18n-alt]").forEach((node) => {
-    node.setAttribute("alt", t(node.getAttribute("data-i18n-alt")));
-  });
   const page = document.body.getAttribute("data-page") || "home";
   document.title = t(`page.${page}.title`);
   document.querySelectorAll("[data-intl-date]").forEach((node) => {

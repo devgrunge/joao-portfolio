@@ -193,21 +193,11 @@ a.nav-link:focus-visible::after {
   background: var(--secondary);
 }
 
-:focus {
-  outline: none;
-}
-
-:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 30%, transparent);
-}
-
 .radix-button:focus-visible,
 .radix-select:focus-visible,
-a:focus-visible,
-.skill-card:focus-visible {
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 35%, transparent);
+a:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--alert) 60%, white);
+  outline-offset: 2px;
 }
 
 .page-main {
@@ -250,27 +240,6 @@ a:focus-visible,
 .info-card:hover {
   transform: translateY(-2px) scale(1.01);
   box-shadow: 0 10px 22px color-mix(in srgb, var(--secondary) 15%, transparent);
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
-}
-
-.contact-list,
-.bullet-list,
-.skill-list {
-  margin: 0;
-  padding-left: 1.2rem;
-}
-
-.skill-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  padding-left: 0;
-  list-style: none;
 }
 
 .skills-grid {
