@@ -56,6 +56,10 @@ html.dark {
   --shadow: 0 14px 42px rgba(2, 6, 23, 0.66);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -218,6 +222,10 @@ a:focus-visible,
   border-radius: 20px;
   box-shadow: var(--shadow);
   padding: 2rem;
+}
+
+.landing-section {
+  scroll-margin-top: 110px;
 }
 
 .hero {

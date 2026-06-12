@@ -39,12 +39,12 @@
       <h1 data-i18n="brand.name">João Miguel Marcondes</h1>
     </div>
     <nav class="site-nav" data-i18n-aria-label="aria.mainNavigation" aria-label="Main navigation">
-      <a class="nav-link" href="index.html" data-i18n="nav.home">Início</a>
-      <a class="nav-link" href="sobre.html" data-i18n="nav.about">Sobre mim</a>
-      <a class="nav-link" href="experiencia.html" data-i18n="nav.experience">Experiência</a>
-      <a class="nav-link" href="competencias.html" data-i18n="nav.skills">Competências</a>
-      <a class="nav-link" href="educacao.html" data-i18n="nav.education">Educação</a>
-      <a class="nav-link" href="linguas.html" data-i18n="nav.languages">Línguas</a>
+      <a class="nav-link" href="#home" data-i18n="nav.home">Início</a>
+      <a class="nav-link" href="#about" data-i18n="nav.about">Sobre mim</a>
+      <a class="nav-link" href="#experience" data-i18n="nav.experience">Experiência</a>
+      <a class="nav-link" href="#skills" data-i18n="nav.skills">Competências</a>
+      <a class="nav-link" href="#education" data-i18n="nav.education">Educação</a>
+      <a class="nav-link" href="#languages" data-i18n="nav.languages">Línguas</a>
     </nav>
     <div class="controls">
       <select class="radix-select" data-action="change-language" data-i18n-aria-label="aria.languageSwitcher" aria-label="Language switcher">
@@ -56,20 +56,14 @@
   </header>
 
   <main class="page-main">
-    <section class="hero">
+    <section id="home" class="landing-section hero">
       <img src="./profile-joao-400.jpg" data-i18n-alt="home.photoAlt" alt="João Miguel Marcondes, multimedia technician" class="hero-photo" />
       <div>
         <h2 data-i18n="home.heading">Portefólio de Tecnologia e Multimédia</h2>
         <p class="skill-badge" data-i18n="home.tagline">Multimedia Technician & Creative Problem Solver</p>
-        <p class="text-muted" data-i18n="home.bio">Sou um jovem profissional da área de Tecnologia e Multimédia, com experiência em desenvolvimento de software, automação, suporte técnico e produção digital.</p>
-        <p class="text-muted" data-i18n="home.bio2">Gosto de aprender rapidamente, resolver problemas práticos e transformar ideias em projetos funcionais.</p>
+        <p class="text-muted" data-i18n="home.bio">Sou o João Miguel Marcondes, comunicativo e com forte afinidade com tecnologia. Aprendo rápido, gosto de resolver desafios práticos e criar soluções orientadas para design e tecnologia com impacto real.</p>
+        <p class="text-muted" data-i18n="home.bio2">Tenho experiência em multimédia, suporte técnico e desenvolvimento web, sempre com foco em melhoria contínua, colaboração e entrega de resultados claros.</p>
       </div>
-    </section>
-
-    <section class="info-card section-spaced">
-      <h3 data-i18n="home.highlight">Foco atual</h3>
-      <p class="text-muted" data-i18n="home.highlightText">Construir interfaces web robustas com acessibilidade e desempenho.</p>
-      <p class="alert-text" data-i18n="home.alert">Disponível para oportunidades de estágio.</p>
     </section>
 
     <section class="info-card section-spaced">
@@ -79,6 +73,143 @@
         <li data-i18n="home.funFact2">Gosto de futebol e valorizo trabalho de equipa dentro e fora do contexto técnico.</li>
         <li data-i18n="home.funFact3">Comunicação clara é uma das minhas principais forças em ambientes colaborativos.</li>
       </ul>
+    </section>
+
+    <section id="about" class="landing-section info-card section-spaced">
+      <h2 data-i18n="about.heading">Sobre mim</h2>
+      <p class="skill-badge" data-i18n="about.tagline">Técnico de Multimédia e Solucionador Criativo</p>
+      <p class="text-muted" data-i18n="about.text">Sou uma pessoa comunicativa, com proficiência na área tecnológica, aprendizagem rápida e paixão por soluções orientadas para design e tecnologia.</p>
+      <p class="text-muted" data-i18n="about.text2">Trabalho com foco em qualidade, colaboração e evolução contínua, combinando criatividade com execução técnica.</p>
+      <p class="text-muted" data-i18n="about.aiBio">Sou o João Miguel Marcondes, profissional de multimédia em Leiria, orientado para tecnologia e design. Combino edição audiovisual, desenvolvimento web e suporte técnico para transformar ideias em resultados úteis. Aprendo rápido, adapto-me a novos contextos e valorizo uma comunicação clara para entregar projetos consistentes, criativos e centrados nas necessidades de cada equipa e cliente.</p>
+    </section>
+
+    <section class="about-grid section-spaced">
+      <article class="info-card">
+        <h3 data-i18n="about.personalDataHeading">Dados pessoais</h3>
+        <ul class="contact-list">
+          <li><strong data-i18n="about.nameLabel">Nome:</strong> <span data-i18n="about.nameValue">João Miguel Marcondes</span></li>
+          <li><strong data-i18n="about.locationLabel">Localização:</strong> <span data-i18n="about.locationValue">Leiria</span></li>
+          <li><strong data-i18n="about.phoneLabel">Telefone:</strong> <span data-i18n="about.phoneValue">+351 961091229</span></li>
+          <li><strong data-i18n="about.emailLabel">Email:</strong> <span data-i18n="about.emailValue">j.marcondesctt021@gmail.com±</span></li>
+        </ul>
+      </article>
+
+      <article class="info-card landing-section" id="education">
+        <h3 data-i18n="education.heading">Educação</h3>
+        <p class="text-muted" data-i18n="education.school">Escola Básica e Secundária Henrique Sommer — Leiria</p>
+        <p class="text-muted" data-i18n="education.level">Curso Técnico de Multimédia (Nível 4 EQF) — concluído em 12/2016</p>
+        <ul>
+          <li data-i18n="education.item1">Formação técnica em fotografia profissional e edição digital.</li>
+          <li data-i18n="education.item2">Desenvolvimento de websites e aplicações multimédia.</li>
+          <li data-i18n="education.item3">Criação prática de projetos de áudio, vídeo e design.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="experience" class="landing-section section-spaced">
+      <h2 data-i18n="experience.heading">Experiência Profissional</h2>
+      <section class="info-card">
+        <h3 data-i18n="experience.internshipRole">Estágio Erasmus+ — Simo Experience (MARS Maribor), Maribor, Eslovénia (2025/2026)</h3>
+        <p class="text-muted" data-i18n="experience.internshipSummary">Durante 1,5 meses participei em contexto internacional com foco em produção multimédia e apoio a atividades da empresa.</p>
+        <ul>
+          <li data-i18n="experience.internshipTask1">Gravação e edição de vídeos para conteúdos internos e apoio em apresentações.</li>
+          <li data-i18n="experience.internshipTask2">Participação em eventos realizados em escolas, com contacto direto com equipas e participantes.</li>
+          <li data-i18n="experience.internshipTask3">Trabalho de escritório: edição de conteúdo audiovisual e organização de imagens e materiais da drive da empresa.</li>
+          <li data-i18n="experience.internshipTask4">Pesquisa de turismo, preparação de itinerários e recolha de fotografias para suporte às atividades.</li>
+        </ul>
+        <p class="text-muted" data-i18n="experience.internshipSkills">Competências desenvolvidas: comunicação, trabalho em equipa, organização, autonomia, atenção ao detalhe e ferramentas multimédia como Photoshop e edição de vídeo.</p>
+        <p class="alert-text" data-i18n="experience.mentor">Tutora de estágio: Hana Repše.</p>
+      </section>
+
+      <section class="info-card section-spaced">
+        <h3 data-i18n="experience.role1">IT Technician — Escola Henrique Sommer, Leiria (09/2023–12/2025)</h3>
+        <p class="text-muted" data-i18n="experience.p1">Automatização de processos com scripts em C e colaboração em iniciativas de machine learning para movimento robótico.</p>
+        <p class="text-muted" data-i18n="experience.p2">Implementação de projeto end-to-end com metodologia Agile e manutenção de hardware, software, redes, impressoras e scanners.</p>
+        <p class="text-muted" data-i18n="experience.p3">Competências aplicadas: Arduino, C, manutenção técnica, troubleshooting, organização de projetos e colaboração em equipa.</p>
+      </section>
+    </section>
+
+    <section id="skills" class="landing-section section-spaced">
+      <h2 data-i18n="skills.heading">Competências Técnicas</h2>
+      <p class="text-muted" data-i18n="skills.hover">Passe o rato ou toque para reproduzir</p>
+      <section class="skills-grid section-spaced">
+        <article class="skill-card" tabindex="0" data-video="videos/web-dev.mp4">
+          <span class="skill-badge" data-i18n="skills.badge.frontend">Frontend</span>
+          <h3 data-i18n="skills.card1.title">HTML, CSS, JavaScript</h3>
+          <p class="text-muted" data-i18n="skills.card1.text">Interfaces responsivas e bases de front-end.</p>
+          <video muted loop playsinline preload="none">
+            <source data-src="./videos/web-dev.mp4" type="video/mp4" />
+          </video>
+        </article>
+
+        <article class="skill-card" tabindex="0" data-video="videos/multimedia.mp4">
+          <span class="skill-badge" data-i18n="skills.badge.multimedia">Multimédia</span>
+          <h3 data-i18n="skills.card2.title">Adobe Photoshop & Premiere</h3>
+          <p class="text-muted" data-i18n="skills.card2.text">Fluxos de pós-produção de imagem e vídeo.</p>
+          <video muted loop playsinline preload="none">
+            <source data-src="./videos/multimedia.mp4" type="video/mp4" />
+          </video>
+        </article>
+
+        <article class="skill-card" tabindex="0" data-video="videos/web-dev.mp4">
+          <span class="skill-badge" data-i18n="skills.badge.motion">Motion</span>
+          <h3 data-i18n="skills.card3.title">After Effects & Filmora</h3>
+          <p class="text-muted" data-i18n="skills.card3.text">Motion graphics e edição narrativa.</p>
+          <video muted loop playsinline preload="none">
+            <source data-src="./videos/web-dev.mp4" type="video/mp4" />
+          </video>
+        </article>
+
+        <article class="skill-card" tabindex="0" data-video="videos/multimedia.mp4">
+          <span class="skill-badge" data-i18n="skills.badge.data">Dados</span>
+          <h3 data-i18n="skills.card4.title">Excel & Gestão de Dados</h3>
+          <p class="text-muted" data-i18n="skills.card4.text">Organização de dados e relatórios práticos.</p>
+          <video muted loop playsinline preload="none">
+            <source data-src="./videos/multimedia.mp4" type="video/mp4" />
+          </video>
+        </article>
+
+        <article class="skill-card" tabindex="0" data-video="videos/multimedia.mp4">
+          <span class="skill-badge" data-i18n="skills.badge.design">Design</span>
+          <h3 data-i18n="skills.card5.title">Fotografia & Design Multimédia</h3>
+          <p class="text-muted" data-i18n="skills.card5.text">Comunicação visual e consistência de marca.</p>
+          <video muted loop playsinline preload="none">
+            <source data-src="./videos/multimedia.mp4" type="video/mp4" />
+          </video>
+        </article>
+
+
+      </section>
+    </section>
+
+    <section id="languages" class="landing-section section-spaced">
+      <h2 data-i18n="languages.heading">Línguas</h2>
+      <section class="info-card">
+        <h3 data-i18n="languages.pt.title">Português</h3>
+        <p class="alert-text" data-i18n="languages.pt.level">Nativo</p>
+        <ul>
+          <li data-i18n="languages.pt.item1">Fluência completa na comunicação oral e escrita.</li>
+          <li data-i18n="languages.pt.item2">Utilização em projetos académicos e profissionais.</li>
+        </ul>
+      </section>
+      <section class="info-card section-spaced">
+        <h3 data-i18n="languages.en.title">Inglês</h3>
+        <p class="alert-text" data-i18n="languages.en.level">Avançado (C1)</p>
+        <ul>
+          <li data-i18n="languages.en.item1">Leitura de documentação técnica e artigos científicos.</li>
+          <li data-i18n="languages.en.item2">Comunicação verbal fluente em reuniões e apresentações.</li>
+          <li data-i18n="languages.en.item3">Experiência com projetos internacionais e ferramentas online.</li>
+        </ul>
+      </section>
+      <section class="info-card section-spaced">
+        <h3 data-i18n="languages.fr.title">Francês</h3>
+        <p class="alert-text" data-i18n="languages.fr.level">Elementar (A2)</p>
+        <ul>
+          <li data-i18n="languages.fr.item1">Compreensão básica de textos e diálogos simples.</li>
+          <li data-i18n="languages.fr.item2">Comunicação limitada para contextos do dia a dia.</li>
+          <li data-i18n="languages.fr.item3">Formação básica para viagens e interações iniciais.</li>
+        </ul>
+      </section>
     </section>
   </main>
 
