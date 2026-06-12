@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>João Miguel Marcondes — Portefólio</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="196x196" href="./favicon-196.png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@radix-ui/themes@3.2.1/styles.css" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script>
+    (function () {
+      try {
+        var storedTheme = localStorage.getItem('site-theme');
+        var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = storedTheme === 'dark' || storedTheme === 'light' ? storedTheme : (systemDark ? 'dark' : 'light');
+        document.documentElement.classList.add(theme);
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (error) {
+        document.documentElement.classList.add('light');
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body data-page="home">
+  <div class="global-loader" id="global-loader" aria-live="polite" aria-hidden="false">
+    <div class="loader-inner">
+      <div class="radix-spinner" role="status" data-i18n-aria-label="aria.loading" aria-label="Loading"></div>
+      <p data-i18n="loader.text">A carregar conteúdo...</p>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="brand">
+      <h1 data-i18n="brand.name">João Miguel Marcondes</h1>
+    </div>
+    <nav class="site-nav" data-i18n-aria-label="aria.mainNavigation" aria-label="Main navigation">
+      <a class="nav-link" href="index.html" data-i18n="nav.home">Início</a>
+      <a class="nav-link" href="sobre.html" data-i18n="nav.about">Sobre mim</a>
+      <a class="nav-link" href="experiencia.html" data-i18n="nav.experience">Experiência</a>
+      <a class="nav-link" href="competencias.html" data-i18n="nav.skills">Competências</a>
+      <a class="nav-link" href="educacao.html" data-i18n="nav.education">Educação</a>
+      <a class="nav-link" href="linguas.html" data-i18n="nav.languages">Línguas</a>
+    </nav>
+    <div class="controls">
+      <select class="radix-select" data-action="change-language" data-i18n-aria-label="aria.languageSwitcher" aria-label="Language switcher">
+        <option value="pt">PT</option>
+        <option value="en">EN</option>
+      </select>
+      <button type="button" class="radix-button primary" data-action="toggle-theme" data-i18n-aria-label="aria.themeToggle" aria-label="Theme toggle">☾</button>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="hero">
+      <img src="./foto frontal.jpeg" alt="Foto de João Miguel Marcondes" class="hero-photo" />
+      <div>
+        <h2 data-i18n="home.heading">Portefólio de Tecnologia e Multimédia</h2>
+        <p class="text-muted" data-i18n="home.bio">Sou um jovem profissional da área de Tecnologia e Multimédia, com experiência em desenvolvimento de software, automação, suporte técnico e produção digital.</p>
+        <p class="text-muted" data-i18n="home.bio2">Gosto de aprender rapidamente, resolver problemas práticos e transformar ideias em projetos funcionais.</p>
+      </div>
+    </section>
+
+    <section class="info-card section-spaced">
+      <h3 data-i18n="home.highlight">Foco atual</h3>
+      <p class="text-muted" data-i18n="home.highlightText">Construir interfaces web robustas com acessibilidade e desempenho.</p>
+      <p class="alert-text" data-i18n="home.alert">Disponível para oportunidades de estágio.</p>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    © <span data-intl-date="2026-01-01">2026</span> João Miguel Marcondes — <span data-i18n="footer.rights">Todos os direitos reservados.</span>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
