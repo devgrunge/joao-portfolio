@@ -459,6 +459,88 @@ a:focus-visible,
   }
 }
 
+.skill-media-visualizer {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in srgb, #000 95%, transparent);
+  display: grid;
+  place-items: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(4px);
+}
+
+.skill-media-visualizer.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.skill-media-visualizer-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: visualizerSlideIn 0.3s ease-in-out;
+}
+
+.skill-media-visualizer img,
+.skill-media-visualizer video {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.skill-media-visualizer-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: color-mix(in srgb, #fff 15%, transparent);
+  border: 1px solid color-mix(in srgb, #fff 30%, transparent);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  transition: all 0.2s ease-in-out;
+  z-index: 10001;
+}
+
+.skill-media-visualizer-close:hover {
+  background: color-mix(in srgb, #fff 25%, transparent);
+  transform: scale(1.05);
+}
+
+@keyframes visualizerSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.skill-card .skill-media {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.skill-card .skill-media:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -430,6 +430,75 @@ function setupSkillMediaFallbacks() {
   });
 }
 
+function setupSkillMediaVisualizer() {
+  const visualizer = document.getElementById("skill-media-visualizer");
+  const visualizerContent = document.getElementById("skill-media-visualizer-content");
+  const closeBtn = document.getElementById("skill-media-visualizer-close");
+
+  if (!visualizer || !visualizerContent || !closeBtn) return;
+
+  const closeVisualizer = () => {
+    visualizer.classList.remove("active");
+    visualizer.setAttribute("aria-hidden", "true");
+    visualizerContent.innerHTML = '<button class="skill-media-visualizer-close" id="skill-media-visualizer-close" aria-label="Close visualizer">×</button>';
+  };
+
+  const openVisualizer = (source) => {
+    visualizerContent.innerHTML = '<button class="skill-media-visualizer-close" id="skill-media-visualizer-close" aria-label="Close visualizer">×</button>';
+    const closeBtn = visualizerContent.querySelector(".skill-media-visualizer-close");
+
+    if (source.tagName === "IMG") {
+      const img = document.createElement("img");
+      img.src = source.src;
+      img.alt = source.alt || "Fullscreen view";
+      visualizerContent.insertBefore(img, closeBtn);
+    } else if (source.tagName === "VIDEO") {
+      const video = document.createElement("video");
+      video.controls = true;
+      video.muted = false;
+      video.autoplay = true;
+      const sources = source.querySelectorAll("source");
+      sources.forEach((src) => {
+        const newSource = document.createElement("source");
+        newSource.src = src.src || src.getAttribute("data-src");
+        newSource.type = src.type;
+        video.appendChild(newSource);
+      });
+      visualizerContent.insertBefore(video, closeBtn);
+    }
+
+    visualizer.classList.add("active");
+    visualizer.setAttribute("aria-hidden", "false");
+
+    const newCloseBtn = visualizerContent.querySelector(".skill-media-visualizer-close");
+    if (newCloseBtn) {
+      newCloseBtn.addEventListener("click", closeVisualizer);
+    }
+  };
+
+  visualizer.addEventListener("click", (e) => {
+    if (e.target === visualizer) {
+      closeVisualizer();
+    }
+  });
+
+  document.querySelectorAll(".skill-card .skill-media").forEach((media) => {
+    if (media.dataset.visualizerBound === "true") return;
+    media.dataset.visualizerBound = "true";
+    media.addEventListener("click", () => {
+      openVisualizer(media);
+    });
+  });
+
+  document.querySelectorAll(".skill-card video").forEach((video) => {
+    if (video.dataset.visualizerBound === "true") return;
+    video.dataset.visualizerBound = "true";
+    video.addEventListener("click", () => {
+      openVisualizer(video);
+    });
+  });
+}
+
 async function init() {
   initializeTheme();
   state.locale = detectLocale();
@@ -442,6 +511,7 @@ async function init() {
   setupAsyncLoader();
   setupSkillMediaFallbacks();
   setupSkillVideos();
+  setupSkillMediaVisualizer();
   window.setTimeout(hideLoader, 220);
 }
 
