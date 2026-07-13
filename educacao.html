@@ -47,10 +47,10 @@
       <a class="nav-link" href="linguas.html" data-i18n="nav.languages">Línguas</a>
     </nav>
     <div class="controls">
-      <select class="radix-select" data-action="change-language" data-i18n-aria-label="aria.languageSwitcher" aria-label="Language switcher">
-        <option value="pt">PT</option>
-        <option value="en">EN</option>
-      </select>
+      <div class="language-toggle" role="group" data-i18n-aria-label="aria.languageSwitcher" aria-label="Language switcher">
+        <button type="button" class="radix-button language-flag" data-action="change-language" data-lang="pt" data-i18n-aria-label="aria.switchToPortuguese" aria-label="Switch to Portuguese">🇵🇹</button>
+        <button type="button" class="radix-button language-flag" data-action="change-language" data-lang="en" data-i18n-aria-label="aria.switchToEnglish" aria-label="Switch to English">🇬🇧</button>
+      </div>
       <button type="button" class="radix-button primary" data-action="toggle-theme" data-i18n-aria-label="aria.themeToggle" aria-label="Theme toggle">☾</button>
     </div>
   </header>

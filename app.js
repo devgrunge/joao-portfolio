@@ -13,7 +13,9 @@ const fallbackMessages = {
     "control.theme": "Theme",
     "control.language": "Language",
     "aria.mainNavigation": "Main navigation",
-    "aria.languageSwitcher": "Language switcher",
+    "aria.languageSwitcher": "Language selector",
+    "aria.switchToPortuguese": "Switch to Portuguese",
+    "aria.switchToEnglish": "Switch to English",
     "aria.themeToggle": "Theme toggle",
     "aria.loading": "Loading",
     "theme.light": "Light",
@@ -47,18 +49,23 @@ const fallbackMessages = {
     "skills.badge.data": "Data",
     "skills.badge.design": "Design",
     "skills.badge.programming": "Programming",
-    "skills.card1.title": "HTML, CSS, JavaScript",
-    "skills.card1.text": "Responsive interfaces and front-end foundations.",
-    "skills.card2.title": "Adobe Photoshop & Premiere",
-    "skills.card2.text": "Image and video post-production workflows.",
-    "skills.card3.title": "After Effects & Filmora",
-    "skills.card3.text": "Motion graphics and narrative editing.",
-    "skills.card4.title": "Excel & Data Handling",
-    "skills.card4.text": "Data organization and practical reporting.",
-    "skills.card5.title": "Photography & Multimedia Design",
-    "skills.card5.text": "Visual communication and brand consistency.",
-    "skills.card6.title": "C Programming",
-    "skills.card6.text": "Logical reasoning and low-level programming practice.",
+    "skills.card1.title": "HTML",
+    "skills.card1.text": "Semantic structure for modern web pages.",
+    "skills.card1.alt": "HTML code example",
+    "skills.card2.title": "CSS",
+    "skills.card2.text": "Responsive styling and interface animations.",
+    "skills.card2.alt": "CSS styling example",
+    "skills.card3.title": "JavaScript",
+    "skills.card3.text": "Interactivity and logic for dynamic experiences.",
+    "skills.card3.alt": "JavaScript code example",
+    "skills.card4.title": "Excel & Data Management",
+    "skills.card4.text": "Data organization, analysis, and practical reporting.",
+    "skills.card4.alt": "Excel spreadsheet and data chart",
+    "skills.card5.title": "Adobe Photoshop & Premiere",
+    "skills.card5.text": "Photo editing and video post-production workflows.",
+    "skills.card5.alt": "Adobe Photoshop and Premiere editing workspace",
+    "skills.card6.title": "Motion graphics & narrative editing",
+    "skills.card6.text": "Motion graphics demos and narrative editing rhythm.",
     "page.education.title": "Education — João Miguel Marcondes",
     "education.heading": "Education",
     "education.school": "Henrique's Summer High School — Leiria",
@@ -95,6 +102,8 @@ const fallbackMessages = {
     "control.language": "Idioma",
     "aria.mainNavigation": "Navegação principal",
     "aria.languageSwitcher": "Seletor de idioma",
+    "aria.switchToPortuguese": "Mudar para português",
+    "aria.switchToEnglish": "Switch to English",
     "aria.themeToggle": "Alternar tema",
     "aria.loading": "A carregar",
     "theme.light": "Claro",
@@ -128,18 +137,23 @@ const fallbackMessages = {
     "skills.badge.data": "Dados",
     "skills.badge.design": "Design",
     "skills.badge.programming": "Programação",
-    "skills.card1.title": "HTML, CSS, JavaScript",
-    "skills.card1.text": "Interfaces responsivas e bases de front-end.",
-    "skills.card2.title": "Adobe Photoshop & Premiere",
-    "skills.card2.text": "Fluxos de pós-produção de imagem e vídeo.",
-    "skills.card3.title": "After Effects & Filmora",
-    "skills.card3.text": "Motion graphics e edição narrativa.",
+    "skills.card1.title": "HTML",
+    "skills.card1.text": "Estrutura semântica para páginas web modernas.",
+    "skills.card1.alt": "Exemplo de código HTML",
+    "skills.card2.title": "CSS",
+    "skills.card2.text": "Estilo visual responsivo e animações de interface.",
+    "skills.card2.alt": "Exemplo de estilos CSS",
+    "skills.card3.title": "JavaScript",
+    "skills.card3.text": "Interatividade e lógica para experiências dinâmicas.",
+    "skills.card3.alt": "Exemplo de código JavaScript",
     "skills.card4.title": "Excel & Gestão de Dados",
-    "skills.card4.text": "Organização de dados e relatórios práticos.",
-    "skills.card5.title": "Fotografia & Design Multimédia",
-    "skills.card5.text": "Comunicação visual e consistência de marca.",
-    "skills.card6.title": "Programação em C",
-    "skills.card6.text": "Raciocínio lógico e prática de programação de baixo nível.",
+    "skills.card4.text": "Organização de dados, análise e relatórios práticos.",
+    "skills.card4.alt": "Folha de cálculo e gráfico de dados",
+    "skills.card5.title": "Adobe Photoshop & Premiere",
+    "skills.card5.text": "Fluxos de edição de imagem e pós-produção de vídeo.",
+    "skills.card5.alt": "Ambiente de edição no Adobe Photoshop e Premiere",
+    "skills.card6.title": "Motion graphics & edição narrativa",
+    "skills.card6.text": "Demonstrações de motion graphics e ritmo narrativo.",
     "page.education.title": "Educação — João Miguel Marcondes",
     "education.heading": "Educação",
     "education.school": "Henrique's Summer High School — Leiria",
@@ -277,14 +291,29 @@ function applyTranslations() {
 }
 
 function setupLanguageSwitcher() {
-  const languageSelect = document.querySelector("[data-action='change-language']");
-  if (!languageSelect) return;
-  languageSelect.value = state.locale;
-  languageSelect.addEventListener("change", (event) => {
-    state.locale = normalizeLocale(event.target.value);
-    localStorage.setItem(LOCALE_KEY, state.locale);
-    applyTranslations();
-    setupThemeToggle();
+  const languageButtons = Array.from(document.querySelectorAll("[data-action='change-language'][data-lang]"));
+  if (!languageButtons.length) return;
+
+  const updateActiveLanguage = () => {
+    languageButtons.forEach((button) => {
+      const isActive = normalizeLocale(button.dataset.lang) === state.locale;
+      button.classList.toggle("active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+  };
+
+  updateActiveLanguage();
+
+  languageButtons.forEach((button) => {
+    if (button.dataset.bound === "true") return;
+    button.dataset.bound = "true";
+    button.addEventListener("click", () => {
+      state.locale = normalizeLocale(button.dataset.lang);
+      localStorage.setItem(LOCALE_KEY, state.locale);
+      applyTranslations();
+      setupThemeToggle();
+      updateActiveLanguage();
+    });
   });
 }
 
@@ -388,6 +417,19 @@ function setupSkillVideos() {
   });
 }
 
+function setupSkillMediaFallbacks() {
+  document.querySelectorAll(".skill-card img.skill-media").forEach((img) => {
+    if (img.dataset.bound === "true") return;
+    img.dataset.bound = "true";
+    img.addEventListener("error", () => {
+      const fallback = document.createElement("div");
+      fallback.className = "skill-media-fallback";
+      fallback.textContent = img.getAttribute("data-fallback-text") || img.getAttribute("alt") || "Visual indisponível";
+      img.replaceWith(fallback);
+    });
+  });
+}
+
 async function init() {
   initializeTheme();
   state.locale = detectLocale();
@@ -398,6 +440,7 @@ async function init() {
   setupLanguageSwitcher();
   setupNavigationLoader();
   setupAsyncLoader();
+  setupSkillMediaFallbacks();
   setupSkillVideos();
   window.setTimeout(hideLoader, 220);
 }

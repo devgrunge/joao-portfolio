@@ -171,8 +171,29 @@ a.nav-link:focus-visible::after {
   align-items: center;
 }
 
+.language-toggle {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.language-flag {
+  min-width: 2.6rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: 0.5rem 0.55rem;
+  border-width: 1px;
+}
+
+.language-flag.active {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 25%, transparent);
+  transform: translateY(-1px);
+}
+
 .radix-button,
-.radix-select {
+.radix-select,
+.language-flag {
   border-radius: 10px;
   border: 1px solid var(--border);
   background: var(--surface-2);
@@ -188,7 +209,8 @@ a.nav-link:focus-visible::after {
 }
 
 .radix-button:hover,
-.radix-select:hover {
+.radix-select:hover,
+.language-flag:hover {
   transform: translateY(-1px) scale(1.01);
   box-shadow: 0 10px 22px color-mix(in srgb, var(--primary) 20%, transparent);
 }
@@ -209,6 +231,7 @@ a.nav-link:focus-visible::after {
 
 .radix-button:focus-visible,
 .radix-select:focus-visible,
+.language-flag:focus-visible,
 a:focus-visible,
 .skill-card:focus-visible {
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 35%, transparent);
@@ -287,6 +310,21 @@ a:focus-visible,
   gap: 1rem;
 }
 
+@media (min-width: 960px) {
+  .skills-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .skills-grid .skill-card {
+    grid-column: span 2;
+  }
+
+  .skills-grid .skill-card:nth-child(4),
+  .skills-grid .skill-card:nth-child(5) {
+    grid-column: span 3;
+  }
+}
+
 .skill-card {
   position: relative;
   overflow: hidden;
@@ -303,18 +341,41 @@ a:focus-visible,
   box-shadow: 0 12px 24px color-mix(in srgb, var(--secondary) 20%, transparent);
 }
 
-.skill-card video {
+.skill-card video,
+.skill-card .skill-media {
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: 10px;
   margin-top: 0.75rem;
-  background: #000;
+  background: color-mix(in srgb, var(--surface-2) 75%, transparent);
+  object-fit: cover;
+  display: block;
+}
+
+.skill-card .skill-media-photo {
+  aspect-ratio: 4 / 3;
+  background: transparent;
+}
+
+.skill-media-fallback {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  margin-top: 0.75rem;
+  border: 1px dashed var(--border);
+  display: grid;
+  place-items: center;
+  padding: 0.8rem;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--surface-2) 75%, transparent);
+  text-align: center;
 }
 
 .skill-badge {
   display: inline-block;
   font-size: 0.85rem;
   padding: 0.3rem 0.6rem;
+  margin-bottom: 0.6rem;
   border-radius: 999px;
   background: color-mix(in srgb, var(--secondary) 25%, transparent);
   color: var(--text);

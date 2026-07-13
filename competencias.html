@@ -47,10 +47,10 @@
       <a class="nav-link" href="linguas.html" data-i18n="nav.languages">Línguas</a>
     </nav>
     <div class="controls">
-      <select class="radix-select" data-action="change-language" data-i18n-aria-label="aria.languageSwitcher" aria-label="Language switcher">
-        <option value="pt">PT</option>
-        <option value="en">EN</option>
-      </select>
+      <div class="language-toggle" role="group" data-i18n-aria-label="aria.languageSwitcher" aria-label="Language switcher">
+        <button type="button" class="radix-button language-flag" data-action="change-language" data-lang="pt" data-i18n-aria-label="aria.switchToPortuguese" aria-label="Switch to Portuguese">🇵🇹</button>
+        <button type="button" class="radix-button language-flag" data-action="change-language" data-lang="en" data-i18n-aria-label="aria.switchToEnglish" aria-label="Switch to English">🇬🇧</button>
+      </div>
       <button type="button" class="radix-button primary" data-action="toggle-theme" data-i18n-aria-label="aria.themeToggle" aria-label="Theme toggle">☾</button>
     </div>
   </header>
@@ -60,58 +60,39 @@
     <p class="text-muted" data-i18n="skills.hover">Passe o rato ou toque para reproduzir</p>
 
     <section class="skills-grid section-spaced">
-      <article class="skill-card" tabindex="0" data-video="videos/web-dev.mp4">
+      <article class="skill-card" tabindex="0">
         <span class="skill-badge" data-i18n="skills.badge.frontend">Frontend</span>
-        <h3 data-i18n="skills.card1.title">HTML, CSS, JavaScript</h3>
-        <p class="text-muted" data-i18n="skills.card1.text">Interfaces responsivas e bases de front-end.</p>
-        <video muted loop playsinline preload="none">
-          <source data-src="./videos/web-dev.mp4" type="video/mp4" />
-        </video>
+        <h3 data-i18n="skills.card1.title">HTML</h3>
+        <p class="text-muted" data-i18n="skills.card1.text">Estrutura semântica para páginas web modernas.</p>
+        <img class="skill-media" src="https://media.tenor.com/b05M8k_O9P4AAAAM/html.gif" alt="HTML gif" loading="lazy" />
       </article>
 
-      <article class="skill-card" tabindex="0" data-video="videos/multimedia.mp4">
-        <span class="skill-badge" data-i18n="skills.badge.multimedia">Multimédia</span>
-        <h3 data-i18n="skills.card2.title">Adobe Photoshop & Premiere</h3>
-        <p class="text-muted" data-i18n="skills.card2.text">Fluxos de pós-produção de imagem e vídeo.</p>
-        <video muted loop playsinline preload="none">
-          <source data-src="./videos/multimedia.mp4" type="video/mp4" />
-        </video>
+      <article class="skill-card" tabindex="0">
+        <span class="skill-badge" data-i18n="skills.badge.frontend">Frontend</span>
+        <h3 data-i18n="skills.card2.title">CSS</h3>
+        <p class="text-muted" data-i18n="skills.card2.text">Estilo visual responsivo e animações de interface.</p>
+        <img class="skill-media" src="https://media.tenor.com/57w9du3NrV0AAAAM/css-html.gif" alt="CSS gif" loading="lazy" />
       </article>
-
-      <article class="skill-card" tabindex="0" data-video="videos/web-dev.mp4">
-        <span class="skill-badge" data-i18n="skills.badge.motion">Motion</span>
-        <h3 data-i18n="skills.card3.title">After Effects & Filmora</h3>
-        <p class="text-muted" data-i18n="skills.card3.text">Motion graphics e edição narrativa.</p>
-        <video muted loop playsinline preload="none">
-          <source data-src="./videos/web-dev.mp4" type="video/mp4" />
-        </video>
-      </article>
-
-      <article class="skill-card" tabindex="0" data-video="videos/multimedia.mp4">
+      
+      <article class="skill-card" tabindex="0">
         <span class="skill-badge" data-i18n="skills.badge.data">Data</span>
         <h3 data-i18n="skills.card4.title">Excel & Gestão de Dados</h3>
-        <p class="text-muted" data-i18n="skills.card4.text">Organização de dados e relatórios práticos.</p>
-        <video muted loop playsinline preload="none">
-          <source data-src="./videos/multimedia.mp4" type="video/mp4" />
-        </video>
+        <p class="text-muted" data-i18n="skills.card4.text">Organização de dados, análise e relatórios práticos.</p>
+        <img class="skill-media" src="./videos/aftereffectsandfilmora.mp4" alt="Excel e dados gif" loading="lazy" />
       </article>
-
-      <article class="skill-card" tabindex="0" data-video="videos/multimedia.mp4">
-        <span class="skill-badge" data-i18n="skills.badge.design">Design</span>
+  
+            <article class="skill-card" tabindex="0">
+              <span class="skill-badge" data-i18n="skills.badge.frontend">Frontend</span>
+              <h3 data-i18n="skills.card3.title">Motion Graphics e edição narrativa</h3>
+              <p class="text-muted" data-i18n="skills.card3.text">Interatividade e lógica para experiências dinâmicas.</p>
+              <img class="skill-media" src="https://media.tenor.com/y6iEpWGGwHYAAAAM/javascript-programming.gif" alt="JavaScript gif" loading="lazy" />
+            </article>
+      
+      <article class="skill-card" tabindex="0">
+        <span class="skill-badge" data-i18n="skills.badge.multimedia">Multimédia</span>
         <h3 data-i18n="skills.card5.title">Fotografia & Design Multimédia</h3>
-        <p class="text-muted" data-i18n="skills.card5.text">Comunicação visual e consistência de marca.</p>
-        <video muted loop playsinline preload="none">
-          <source data-src="./videos/multimedia.mp4" type="video/mp4" />
-        </video>
-      </article>
-
-      <article class="skill-card" tabindex="0" data-video="videos/automation.mp4">
-        <span class="skill-badge" data-i18n="skills.badge.programming">Programming</span>
-        <h3 data-i18n="skills.card6.title">Programação em C</h3>
-        <p class="text-muted" data-i18n="skills.card6.text">Raciocínio lógico e prática de programação de baixo nível.</p>
-        <video muted loop playsinline preload="none">
-          <source data-src="./videos/automation.mp4" type="video/mp4" />
-        </video>
+        <p class="text-muted" data-i18n="skills.card5.text">Composição visual, imagem e consistência de marca.</p>
+        <img class="skill-media skill-media-photo" src="./videos/adobephotoshopandfilmora.jpg" alt="Fotografia e design multimédia" loading="lazy" />
       </article>
     </section>
   </main>

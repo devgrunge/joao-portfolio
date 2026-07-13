@@ -47,10 +47,10 @@
       <a class="nav-link" href="#languages" data-i18n="nav.languages">Línguas</a>
     </nav>
     <div class="controls">
-      <select class="radix-select" data-action="change-language" data-i18n-aria-label="aria.languageSwitcher" aria-label="Language switcher">
-        <option value="pt">PT</option>
-        <option value="en">EN</option>
-      </select>
+      <div class="language-toggle" role="group" data-i18n-aria-label="aria.languageSwitcher" aria-label="Language switcher">
+        <button type="button" class="radix-button language-flag" data-action="change-language" data-lang="pt" data-i18n-aria-label="aria.switchToPortuguese" aria-label="Switch to Portuguese">🇵🇹</button>
+        <button type="button" class="radix-button language-flag" data-action="change-language" data-lang="en" data-i18n-aria-label="aria.switchToEnglish" aria-label="Switch to English">🇬🇧</button>
+      </div>
       <button type="button" class="radix-button primary" data-action="toggle-theme" data-i18n-aria-label="aria.themeToggle" aria-label="Theme toggle">☾</button>
     </div>
   </header>
@@ -147,19 +147,11 @@
           <h3 data-i18n="skills.card2.title">Adobe Photoshop & Premiere</h3>
           <p class="text-muted" data-i18n="skills.card2.text">Fluxos de pós-produção de imagem e vídeo.</p>
           <video muted loop playsinline preload="none">
-            <source data-src="./videos/multimedia.mp4" type="video/mp4" />
+            <source data-src="./videos/adobephotoshopandfilmora.jpg" type="image/jpg" />
           </video>
         </article>
 
-        <article class="skill-card" tabindex="0" data-video="videos/web-dev.mp4">
-          <span class="skill-badge" data-i18n="skills.badge.motion">Motion</span>
-          <h3 data-i18n="skills.card3.title">After Effects & Filmora</h3>
-          <p class="text-muted" data-i18n="skills.card3.text">Motion graphics e edição narrativa.</p>
-          <video muted loop playsinline preload="none">
-            <source data-src="./videos/web-dev.mp4" type="video/mp4" />
-          </video>
-        </article>
-
+        
         <article class="skill-card" tabindex="0" data-video="videos/multimedia.mp4">
           <span class="skill-badge" data-i18n="skills.badge.data">Dados</span>
           <h3 data-i18n="skills.card4.title">Excel & Gestão de Dados</h3>
@@ -168,13 +160,22 @@
             <source data-src="./videos/multimedia.mp4" type="video/mp4" />
           </video>
         </article>
+        
+        <article class="skill-card" tabindex="0" data-video="videos/web-dev.mp4">
+          <span class="skill-badge" data-i18n="skills.badge.motion">Motion</span>
+          <h3 data-i18n="skills.card3.title">After Effects & Filmora</h3>
+          <p class="text-muted" data-i18n="skills.card3.text">Motion graphics e edição narrativa.</p>
+          <video muted loop playsinline preload="none">
+            <source data-src="./videos/multimedia.mp4" type="video/mp4" />
+          </video>
+        </article>
 
         <article class="skill-card" tabindex="0" data-video="videos/multimedia.mp4">
           <span class="skill-badge" data-i18n="skills.badge.design">Design</span>
-          <h3 data-i18n="skills.card5.title">Fotografia & Design Multimédia</h3>
+          <h3 data-i18n="skills.card7.title">Fotografia & Design Multimédia</h3>
           <p class="text-muted" data-i18n="skills.card5.text">Comunicação visual e consistência de marca.</p>
           <video muted loop playsinline preload="none">
-            <source data-src="./videos/multimedia.mp4" type="video/mp4" />
+            <source data-src="./videos/aftereffectsandfilmora.mp4" type="video/mp4" />
           </video>
         </article>
 
